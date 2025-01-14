@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <time.h>
 
 using namespace std;
 
@@ -67,7 +68,7 @@ int main()
 	{
 		cout<<"TEST NR: "<<test<<endl;
 		int N;
-		N=rand()% 30;
+		N=rand()% 30 + 10;
 		cout<<"N wynosi: "<<N<<endl;
 		int *T=new int[N];
 		cout<<"{ ";
@@ -77,8 +78,11 @@ int main()
 			cout<<T[i]<<" ";
 		}
 		cout<<"}"<<endl;
+		clock_t start = clock();
 		ZnajdzNajwiekszyPodciagMalejacy(T, N);
-		
+		clock_t end = clock();
+		double elapsed = double(end - start)/CLOCKS_PER_SEC;
+		cout<<"Czas wykonywania programu: "<<elapsed;
 		delete[] T;
 		cout<<endl<<endl;
 	}
