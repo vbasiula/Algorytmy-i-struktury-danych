@@ -80,9 +80,11 @@ int main()
 		cout<<"}"<<endl;
 		clock_t start = clock();
 		ZnajdzNajwiekszyPodciagMalejacy(T, N);
+		
 		clock_t end = clock();
 		double elapsed = double(end - start)/CLOCKS_PER_SEC;
 		cout<<"Czas wykonywania programu: "<<elapsed;
+		
 		delete[] T;
 		cout<<endl<<endl;
 	}
