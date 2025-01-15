@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 using namespace std;
 
@@ -9,8 +10,8 @@ void ZnajdzNajdluzszyPodciagMalejacy2(int A[], int N)
 	int najdluzszy=0;
 	int IloscNajdluzszych=0;
 	
-	int PoczatekNajdluzszego[N];
-	int KoniecNajdluzszego[N];
+	int *PoczatekNajdluzszego=new int[N];
+	int *KoniecNajdluzszego=new int[N];
 	
 	//algorytm
 	for(int i=1; i<=N; i++)
@@ -39,7 +40,6 @@ void ZnajdzNajdluzszyPodciagMalejacy2(int A[], int N)
 		}
 	}
 	
-	
 	cout<<endl;
 	if(najdluzszy>1)
 	{
@@ -53,21 +53,34 @@ void ZnajdzNajdluzszyPodciagMalejacy2(int A[], int N)
 			}
 			cout<<"}"<<endl;
 		}
+		cout<<"Ilosc znalezionych podciagow: "<<IloscNajdluzszych<<endl;
 	}
 	else {cout<<"Nie znaleziono najmniejszego podciagu.";}
+	
+	delete[] PoczatekNajdluzszego;
+	delete[] KoniecNajdluzszego;
 }
 
 
 
 int main()
 {
-	int N=10,A[N]={-10,5,8,1,-4,-4,10,3,-1,1};
-	for(int i=0; i<N; i++)
+	srand(time(NULL));
+	for(int test=1;test<4;test++)
 	{
-		cout<<A[i]<<setw(4);
-	}
-	cout<<endl;
-	ZnajdzNajdluzszyPodciagMalejacy2(A, N);
+		cout<<"Test nr "<<test<<":"<<endl;
+		int N=rand()% 100+11;
+		int *A=new int[N];
+		cout<<"Ilosc sprawdzanych liczb: "<<N<<endl;
+		for(int i=0; i<N; i++)
+		{
+			A[i]=rand()%51-10;
+			cout<<A[i]<<setw(4);
+		}
 	
+		ZnajdzNajdluzszyPodciagMalejacy2(A, N);
+		cout<<endl<<endl;
+		delete []A;
+	}
 	return 0;
 }
