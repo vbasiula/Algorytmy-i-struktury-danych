@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <time.h>
 
 using namespace std;
 
@@ -69,18 +70,26 @@ int main()
 	for(int test=1;test<4;test++)
 	{
 		cout<<"Test nr "<<test<<":"<<endl;
-		int N=rand()% 100+11;
+		//int N=rand()% 1000+11;
+		int N=100000000;
 		int *A=new int[N];
 		cout<<"Ilosc sprawdzanych liczb: "<<N<<endl;
 		for(int i=0; i<N; i++)
 		{
-			A[i]=rand()%51-10;
-			cout<<A[i]<<setw(4);
+			A[i]=rand()%200-99;
+			//cout<<A[i]<<setw(4);
 		}
-	
+		clock_t start = clock();
 		ZnajdzNajdluzszyPodciagMalejacy2(A, N);
+		clock_t end = clock();
+		double elapsed = double(end - start)/CLOCKS_PER_SEC;
+		cout<<"Czas wykonywania programu: "<<elapsed;
 		cout<<endl<<endl;
 		delete []A;
 	}
+	/*
+	int N=10,A[N]={-10,5,8,1,-4,-4,10,3,-1,1};
+	ZnajdzNajdluzszyPodciagMalejacy2(A, N);
+	*/
 	return 0;
 }

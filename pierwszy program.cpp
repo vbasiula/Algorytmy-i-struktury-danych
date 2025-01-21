@@ -57,6 +57,7 @@ void ZnajdzNajwiekszyPodciagMalejacy(int T[], int N)  //BRUTE FORCE
 			}
 			cout<<"}"<<endl;
 		}
+		cout<<"Ilosc znalezionych podciagow: "<<iloscNajdluzszych<<endl;
 	}
 	else {cout<<"Nie znaleziono najmniejszego podciagu.";}
 }
@@ -67,14 +68,14 @@ int main()
 	for(int test=1; test<4; test++)
 	{
 		cout<<"TEST NR: "<<test<<endl;
-		int N;
-		N=rand()% 30 + 10;
+		//int N=250000;
+		int N=rand()% 100000 + 10;
 		cout<<"N wynosi: "<<N<<endl;
 		int *T=new int[N];
 		cout<<"{ ";
 		for(int i=0; i<N; i++)
 		{
-			T[i]=rand()%21-10;
+			T[i]=rand()%200-99;
 			cout<<T[i]<<" ";
 		}
 		cout<<"}"<<endl;
