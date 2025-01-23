@@ -71,7 +71,7 @@ int main()
 	{
 		cout<<"Test nr "<<test<<":"<<endl;
 		//int N=rand()% 1000+11;
-		int N=100000000;
+		int N=120000;
 		int *A=new int[N];
 		cout<<"Ilosc sprawdzanych liczb: "<<N<<endl;
 		for(int i=0; i<N; i++)

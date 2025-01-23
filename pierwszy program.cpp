@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void ZnajdzNajwiekszyPodciagMalejacy(int T[], int N)  //BRUTE FORCE
+void ZnajdzNajwiekszyPodciagMalejacy(int A[], int N)  //BRUTE FORCE
 {
 	int jest=0;
 	int najdluzszy=0;
@@ -18,7 +18,7 @@ void ZnajdzNajwiekszyPodciagMalejacy(int T[], int N)  //BRUTE FORCE
 		{
 			for(int k=j; k<j+i-1; k++)   //granica indeksow w ktorych jest sprawdzany aktualny podciag
 			{
-				if(T[k] > T[k+1])   //warunek porownania liczb w danym podciagu
+				if(A[k] > A[k+1])   //warunek porownania liczb w danym podciagu
 				{
 					jest=1;
 				}
@@ -53,7 +53,7 @@ void ZnajdzNajwiekszyPodciagMalejacy(int T[], int N)  //BRUTE FORCE
 			cout<<"{ ";
 			for(int j=poczatekPodciagow[i]; j<=koniecPodciagow[i]; j++)
 			{
-				cout<<T[j]<<" ";
+				cout<<A[j]<<" ";
 			}
 			cout<<"}"<<endl;
 		}
@@ -68,25 +68,25 @@ int main()
 	for(int test=1; test<4; test++)
 	{
 		cout<<"TEST NR: "<<test<<endl;
-		//int N=250000;
+		//int N=120000;
 		int N=rand()% 100000 + 10;
 		cout<<"N wynosi: "<<N<<endl;
-		int *T=new int[N];
+		int *A=new int[N];
 		cout<<"{ ";
 		for(int i=0; i<N; i++)
 		{
-			T[i]=rand()%200-99;
-			cout<<T[i]<<" ";
+			A[i]=rand()%200-99;
+			//cout<<T[i]<<" ";
 		}
 		cout<<"}"<<endl;
 		clock_t start = clock();
-		ZnajdzNajwiekszyPodciagMalejacy(T, N);
+		ZnajdzNajwiekszyPodciagMalejacy(A, N);
 		
 		clock_t end = clock();
 		double elapsed = double(end - start)/CLOCKS_PER_SEC;
 		cout<<"Czas wykonywania programu: "<<elapsed;
 		
-		delete[] T;
+		delete[] A;
 		cout<<endl<<endl;
 	}
 		/*
