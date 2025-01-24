@@ -41,10 +41,10 @@ void ZnajdzNajdluzszyPodciagMalejacy2(int A[], int N)
 		}
 	}
 	
-	cout<<endl;
 	if(najdluzszy>1)
 	{
 		cout<<"Najdluzszy podciag zawiera "<<najdluzszy<<" wyrazow:"<<endl;
+		cout<<"Wyjscie: "<<endl;
 		for(int i=0; i<IloscNajdluzszych; i++)
 		{
 			cout<<"{ ";
@@ -69,22 +69,20 @@ int main()
 	srand(time(NULL));
 	for(int test=1;test<4;test++)
 	{
-		cout<<"Test nr "<<test<<":"<<endl;
-		//int N=rand()% 1000+11;
-		int N=120000;
+		cout<<"TEST NR "<<test<<":"<<endl;
+		int N=rand()% 30+11;
 		int *A=new int[N];
-		cout<<"Ilosc sprawdzanych liczb: "<<N<<endl;
+		cout<<"Rozmiar tablicy wynosi: "<<N<<endl;
+		cout<<"Wejscie: "<<endl;
+		cout<<"{ ";
 		for(int i=0; i<N; i++)
 		{
 			A[i]=rand()%200-99;
-			//cout<<A[i]<<setw(4);
+			cout<<A[i]<<setw(4);
 		}
-		clock_t start = clock();
+		cout<<"}"<<endl;
 		ZnajdzNajdluzszyPodciagMalejacy2(A, N);
-		clock_t end = clock();
-		double elapsed = double(end - start)/CLOCKS_PER_SEC;
-		cout<<"Czas wykonywania programu: "<<elapsed;
-		cout<<endl<<endl;
+		cout<<endl;
 		delete []A;
 	}
 	/*

@@ -31,12 +31,12 @@ void ZnajdzNajwiekszyPodciagMalejacy(int A[], int N)  //BRUTE FORCE
 				{
 					najdluzszy=i;
 					iloscNajdluzszych=0;
-					poczatekPodciagow[iloscNajdluzszych]=j;
-					koniecPodciagow[iloscNajdluzszych]=j+i-1;
+					poczatekPodciagow[iloscNajdluzszych]=j;   //zapisywanie indeksu poczatkowego podciagu 
+					koniecPodciagow[iloscNajdluzszych]=j+i-1; //zapisywanie indeksu koncowego podciagu
 					iloscNajdluzszych++;
 				}
 				
-				else if(i==najdluzszy)
+				else if(i==najdluzszy)  //wykonuje sie w momencie wystapienia wiecej niz jednego podciagu tej samej dlugosci
 				{
 					poczatekPodciagow[iloscNajdluzszych]=j;
 					koniecPodciagow[iloscNajdluzszych]=j+i-1;
